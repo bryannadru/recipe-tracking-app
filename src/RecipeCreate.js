@@ -13,12 +13,12 @@ function RecipeCreate({addNewRecipe}) {
    url: '',
    ingredients: '',
    preparation:''
- }
+  }
+ 
+  const [newRecipe, setNewRecipe] = useState('')
+  const [formData, setFormData] = useState(initialFormState)
  
 
- const [newRecipe, setNewRecipe] = useState('')
- const [formData, setFormData] = useState(initialFormState)
-  
  const changingContent = ({target}) => {
    setFormData({
      ...formData,
@@ -28,8 +28,8 @@ function RecipeCreate({addNewRecipe}) {
  
  const postedRecipe = (event) => {
    event.preventDefault()
-   addNewRecipe(formData)
-   setFormData(initialFormState)
+     addNewRecipe(formData)
+     setFormData(initialFormState)
  }
  
 
@@ -40,57 +40,57 @@ function RecipeCreate({addNewRecipe}) {
         <tbody>
           <tr>
           <td>
-            <label>Name</label>
-            <input 
+            <input
               id="name"
               name="name"
               placeholder="Name"
               value={formData.name}
               onChange={changingContent}
+              required
             /> 
           </td>
            
           <td>
-            <label>Cuisine</label>
             <input
               id="cuisine"
               name="cuisine"
               placeholder="Cuisine"
               value={formData.cuisine}
               onChange={changingContent}
+              required
             />
           </td>
 
           <td>
-            <label>URL</label>
             <input 
               id="photo"
               name="photo"
               placeholder="URL"
               value={formData.photo}
               onChange={changingContent}
+              required
               />
          </td> 
             
          <td>    
-          <label>Ingredients</label>
           <textarea
             id="ingredients"
             name="ingredients"
             placeholder="Ingredients"
             value={formData.ingredients}
             onChange={changingContent}
+            required
             />
          </td>
            
          <td>
-          <label>Preparation</label>
           <textarea
             id="preparation"
             name="preparation"
             placeholder="Preparation"
             value={formData.preparation}
             onChange={changingContent}
+            required
             />
         </td>
         <td>
