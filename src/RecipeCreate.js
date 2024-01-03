@@ -17,19 +17,19 @@ function RecipeCreate({addNewRecipe}) {
  
 
  const [newRecipe, setNewRecipe] = useState('')
- const [formData, setFormData] = useState({...initialFormState})
+ const [formData, setFormData] = useState(initialFormState)
   
  const changingContent = ({target}) => {
    setFormData({
      ...formData,
-     [target.name]: target.value
+     [target.name]: target.value,
    })
  }
  
  const postedRecipe = (event) => {
    event.preventDefault()
    addNewRecipe(formData)
-   setFormData({...initialFormState})
+   setFormData(initialFormState)
  }
  
 
@@ -45,6 +45,7 @@ function RecipeCreate({addNewRecipe}) {
               id="name"
               name="name"
               placeholder="Name"
+              value={formData.name}
               onChange={changingContent}
             /> 
           </td>
@@ -55,6 +56,7 @@ function RecipeCreate({addNewRecipe}) {
               id="cuisine"
               name="cuisine"
               placeholder="Cuisine"
+              value={formData.cuisine}
               onChange={changingContent}
             />
           </td>
@@ -65,6 +67,7 @@ function RecipeCreate({addNewRecipe}) {
               id="photo"
               name="photo"
               placeholder="URL"
+              value={formData.photo}
               onChange={changingContent}
               />
          </td> 
@@ -75,6 +78,7 @@ function RecipeCreate({addNewRecipe}) {
             id="ingredients"
             name="ingredients"
             placeholder="Ingredients"
+            value={formData.ingredients}
             onChange={changingContent}
             />
          </td>
@@ -85,6 +89,7 @@ function RecipeCreate({addNewRecipe}) {
             id="preparation"
             name="preparation"
             placeholder="Preparation"
+            value={formData.preparation}
             onChange={changingContent}
             />
         </td>
